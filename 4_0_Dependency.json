@@ -1,0 +1,47 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+
+        "storageaccname": {
+            
+            "type": "string"
+        
+
+        }
+    },
+    "functions": [],
+    "variables": {
+        "accountName": "[parameters('storageaccname')]"
+
+
+    },
+    "resources": [
+        {
+            "name": "[variables('accountName')]",
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2021-04-01",
+            "location": "[resourceGroup().location]",
+            "sku": {
+                "name": "Premium_LRS",
+                "tier": "Premium"
+            }
+        },
+        {
+            "name": "[concat(variables('accountName'), '/default/cokenqwojc')]",
+            "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
+            "apiVersion": "2021-04-01",
+            "dependsOn": [
+                "[resourceId('Microsoft.Storage/storageAccounts', variables('accountName'))]"
+            ],
+            "properties": {
+                "publicAccess": "None"
+            }
+        }
+
+    
+
+
+    ],
+    "outputs": {}
+}

@@ -1,0 +1,42 @@
+
+Define resources with Bicep, ARM templates, and Terraform AzAPI provider:
+https://learn.microsoft.com/en-us/azure/templates/
+
+az deployment create --location "East US"  --template-file .\1_azuredeploy.json 
+
+
+az provider operation show --namespace Microsoft.Storage
+
+az provider show --namespace Microsoft.Storage
+
+
+az provider show --namespace Microsoft.Compute --query "resourceTypes[*].resourceType" --out table 
+
+
+Display all resource types for the Storage resource provider.
+PS C:\Users\Iamadmin\Documents\Azure_ARM> az provider list --query "[?namespace=='Microsoft.Storage'].resourceTypes[].resourceType"
+[
+  "storageAccounts/storageTaskAssignments",
+  "storageAccounts/encryptionScopes",
+  "deletedAccounts",
+  "locations/deletedAccounts",
+  "storageAccounts",
+  "storageTasks",
+  "operations",
+  "locations/asyncoperations",
+  "storageAccounts/listAccountSas",
+  "storageAccounts/listServiceSas",
+  "storageAccounts/blobServices",
+  "storageAccounts/tableServices",
+  "storageAccounts/queueServices",
+  "storageAccounts/fileServices",
+  "locations",
+  "locations/usages",
+  "locations/deleteVirtualNetworkOrSubnets",
+  "usages",
+  "checkNameAvailability",
+  "locations/checkNameAvailability",
+  "storageAccounts/services",
+  "storageAccounts/services/metricDefinitions",
+  "locations/notifyNetworkSecurityPerimeterUpdatesAvailable"
+]

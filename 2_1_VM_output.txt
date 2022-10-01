@@ -1,0 +1,269 @@
+PS C:\Users\Iamadmin\Documents\Azure_ARM> cd .\ARM\
+PS C:\Users\Iamadmin\Documents\Azure_ARM\ARM> az deployment group create --resource-group myResourceGroup --template-file .\2_VM.json
+{"code": "InvalidTemplateDeployment", "message": "The template deployment '2_VM' is not valid according to the 
+validation procedure. The tracking id is '87bc3006-51dc-4a76-b70f-808bab829ab5'. See inner errors for details."}
+Inner Errors:
+{"code": "InvalidDomainNameLabel", "message": "The domain name label arm_dns is invalid. It must conform to the following regular expression: ^[a-z][a-z0-9-]{1,61}[a-z0-9]$."}
+PS C:\Users\Iamadmin\Documents\Azure_ARM\ARM> az deployment group create --resource-group myResourceGroup --template-file .\2_VM.json
+{"status":"Failed","error":{"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/DeployOperations for usage detail  \"message\": \"Linux host name cannot exceed 64 characters in length or contain the following characters: ` ~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \\\\ | ; : ' \\\" , < > / ?.\",\r\n    \"target\": \"computerName\"\r\n  }\r\n}"}]}}
+PS C:\Users\Iamadmin\Documents\Azure_ARM\ARM> az deployment group create --resource-group myResourceGroup --template-file .\2_VM.json
+{
+  "id": "/subscriptions/db3d30bb-1d2a-4140-b728-8fe2ef776e83/resourceGroups/myResourceGroup/providers/Microsoft.Resources/deployments/2_VM",
+  "location": null,
+  "name": "2_VM",
+  "properties": {
+    "correlationId": "400c0f2a-4611-472a-84d8-3bdc1344ba1b",
+    "debugSetting": null,
+    "dependencies": [
+      {
+        "dependsOn": [
+          {
+            "id": "/subscriptions/db3d30bb-1d2a-4140-b728-8fe2ef776e83/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/arm_ip",
+            "resourceGroup": "myResourceGroup",
+            "resourceName": "arm_ip",
+            "resourceType": "Microsoft.Network/publicIPAddresses"
+          },
+          {
+            "id": "/subscriptions/db3d30bb-1d2a-4140-b728-8fe2ef776e83/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/MyVNET",
+            "resourceGroup": "myResourceGroup",
+            "resourceName": "MyVNET",
+            "resourceType": "Microsoft.Network/virtualNetworks"
+          },
+          {
+            "id": "/subscriptions/db3d30bb-1d2a-4140-b728-8fe2ef776e83/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/front",
+            "resourceGroup": "myResourceGroup",
+            "resourceName": "front",
+            "resourceType": "Microsoft.Network/networkSecurityGroups"
+          }
+        ],
+        "id": "/subscriptions/db3d30bb-1d2a-4140-b728-8fe2ef776e83/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/arm_nic",
+        "resourceGroup": "myResourceGroup",
+        "resourceName": "arm_nic",
+        "resourceType": "Microsoft.Network/networkInterfaces"
+      },
+      {
+        "dependsOn": [
+          {
+            "id": "/subscriptions/db3d30bb-1d2a-4140-b728-8fe2ef776e83/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/uohiuwvkca2kwsalinuxvm",
+            "resourceGroup": "myResourceGroup",
+            "resourceName": "uohiuwvkca2kwsalinuxvm",
+            "resourceType": "Microsoft.Storage/storageAccounts"
+          },
+          {
+            "id": "/subscriptions/db3d30bb-1d2a-4140-b728-8fe2ef776e83/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/arm_nic",
+            "resourceGroup": "myResourceGroup",
+            "resourceName": "arm_nic",
+            "resourceType": "Microsoft.Network/networkInterfaces"
+          },
+          {
+            "apiVersion": "2016-01-01",
+            "id": "/subscriptions/db3d30bb-1d2a-4140-b728-8fe2ef776e83/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/uohiuwvkca2kwsalinuxvm",
+            "resourceGroup": "myResourceGroup",
+            "resourceName": "uohiuwvkca2kwsalinuxvm",
+            "resourceType": "Microsoft.Storage/storageAccounts"
+          }
+        ],
+        "id": "/subscriptions/db3d30bb-1d2a-4140-b728-8fe2ef776e83/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/armvm",
+        "resourceGroup": "myResourceGroup",
+        "resourceName": "armvm",
+        "resourceType": "Microsoft.Compute/virtualMachines"
+      }
+    ],
+    "duration": "PT34.7496085S",
+    "error": null,
+    "mode": "Incremental",
+    "onErrorDeployment": null,
+    "outputResources": [
+      {
+        "id": "/subscriptions/db3d30bb-1d2a-4140-b728-8fe2ef776e83/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/armvm",
+        "resourceGroup": "myResourceGroup"
+      },
+      {
+        "id": "/subscriptions/db3d30bb-1d2a-4140-b728-8fe2ef776e83/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/arm_nic",
+        "resourceGroup": "myResourceGroup"
+      },
+      {
+        "id": "/subscriptions/db3d30bb-1d2a-4140-b728-8fe2ef776e83/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/front",
+        "resourceGroup": "myResourceGroup"
+      },
+      {
+        "id": "/subscriptions/db3d30bb-1d2a-4140-b728-8fe2ef776e83/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/arm_ip",
+        "resourceGroup": "myResourceGroup"
+      },
+      {
+        "id": "/subscriptions/db3d30bb-1d2a-4140-b728-8fe2ef776e83/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/MyVNET",
+        "resourceGroup": "myResourceGroup"
+      },
+      {
+        "id": "/subscriptions/db3d30bb-1d2a-4140-b728-8fe2ef776e83/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/uohiuwvkca2kwsalinuxvm",
+        "resourceGroup": "myResourceGroup"
+      }
+    ],
+    "outputs": {
+      "hostname": {
+        "type": "String",
+        "value": "armdns.westus3.cloudapp.azure.com"
+      },
+      "sshCommand": {
+        "type": "String",
+        "value": "ssh Iamadmin@armdns.westus3.cloudapp.azure.com"
+      }
+    },
+    "parameters": {
+      "adminPassword": {
+        "type": "SecureString"
+      },
+      "adminUsername": {
+        "type": "String",
+        "value": "Iamadmin"
+      },
+      "dnsLabelPrefix": {
+        "type": "String",
+        "value": "armdns"
+      },
+      "location": {
+        "type": "String",
+        "value": "West US 3"
+      },
+      "nicName": {
+        "type": "String",
+        "value": "arm_nic"
+      },
+      "publicIPAddressName": {
+        "type": "String",
+        "value": "arm_ip"
+      },
+      "ubuntuOSVersion": {
+        "type": "String",
+        "value": "16.04.0-LTS"
+      },
+      "vmname": {
+        "type": "String",
+        "value": "armvm"
+      }
+    },
+    "parametersLink": null,
+    "providers": [
+      {
+        "id": null,
+        "namespace": "Microsoft.Storage",
+        "providerAuthorizationConsentState": null,
+        "registrationPolicy": null,
+        "registrationState": null,
+        "resourceTypes": [
+          {
+            "aliases": null,
+            "apiProfiles": null,
+            "apiVersions": null,
+            "capabilities": null,
+            "defaultApiVersion": null,
+            "locationMappings": null,
+            "locations": [
+              "westus3"
+            ],
+            "properties": null,
+            "resourceType": "storageAccounts",
+            "zoneMappings": null
+          }
+        ]
+      },
+      {
+        "id": null,
+        "namespace": "Microsoft.Network",
+        "providerAuthorizationConsentState": null,
+        "registrationPolicy": null,
+        "registrationState": null,
+        "resourceTypes": [
+          {
+            "aliases": null,
+            "apiProfiles": null,
+            "apiVersions": null,
+            "capabilities": null,
+            "defaultApiVersion": null,
+            "locationMappings": null,
+            "locations": [
+              "westus3"
+            ],
+            "properties": null,
+            "resourceType": "publicIPAddresses",
+            "zoneMappings": null
+          },
+          {
+            "aliases": null,
+            "apiProfiles": null,
+            "apiVersions": null,
+            "capabilities": null,
+            "defaultApiVersion": null,
+            "locationMappings": null,
+            "locations": [
+              "westus3"
+            ],
+            "properties": null,
+            "resourceType": "virtualNetworks",
+            "zoneMappings": null
+          },
+          {
+            "aliases": null,
+            "apiProfiles": null,
+            "apiVersions": null,
+            "capabilities": null,
+            "defaultApiVersion": null,
+            "locationMappings": null,
+            "locations": [
+              "westus3"
+            ],
+            "properties": null,
+            "resourceType": "networkSecurityGroups",
+            "zoneMappings": null
+          },
+          {
+            "aliases": null,
+            "apiProfiles": null,
+            "apiVersions": null,
+            "capabilities": null,
+            "defaultApiVersion": null,
+            "locationMappings": null,
+            "locations": [
+              "westus3"
+            ],
+            "properties": null,
+            "resourceType": "networkInterfaces",
+            "zoneMappings": null
+          }
+        ]
+      },
+      {
+        "id": null,
+        "namespace": "Microsoft.Compute",
+        "providerAuthorizationConsentState": null,
+        "registrationPolicy": null,
+        "registrationState": null,
+        "resourceTypes": [
+          {
+            "aliases": null,
+            "apiProfiles": null,
+            "apiVersions": null,
+            "capabilities": null,
+            "defaultApiVersion": null,
+            "locationMappings": null,
+            "locations": [
+              "westus3"
+            ],
+            "properties": null,
+            "resourceType": "virtualMachines",
+            "zoneMappings": null
+          }
+        ]
+      }
+    ],
+    "provisioningState": "Succeeded",
+    "templateHash": "4378438591569627484",
+    "templateLink": null,
+    "timestamp": "2022-09-29T08:22:28.609805+00:00",
+    "validatedResources": null
+  },
+  "resourceGroup": "myResourceGroup",
+  "tags": null,
+  "type": "Microsoft.Resources/deployments"
+}
+PS C:\Users\Iamadmin\Documents\Azure_ARM\ARM>
