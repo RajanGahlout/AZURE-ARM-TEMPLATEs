@@ -26,9 +26,12 @@
                 "name": "Premium_LRS",
                 "tier": "Premium"
             },
-            "kind": "StorageV2"
-        },
-        {
+            "kind": "StorageV2",
+            "resources": [
+
+
+
+                     {
             "name": "[concat(variables('accountName'), '/default/cokenqwojc')]", //default/name_of_container
             "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
             "apiVersion": "2021-04-01",
@@ -39,6 +42,9 @@
                 "publicAccess": "None"
             }
         }
+            ]
+        }
+   
 
     
 

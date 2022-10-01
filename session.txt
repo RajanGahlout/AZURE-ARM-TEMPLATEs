@@ -7,3 +7,4 @@ we can run the same with azure cli --> we need to run code .  in azure cli and w
 if we do not major chnage anyting in temp then you cant see new deployment as name might be same so we need to kepp some timespam for the same.
 we can genrate the uniquieString('123') for uniquieString and use concat function to concatination.
 how to add parameter and how we give the user input on fly.
+We can define chile resource after parent resources (with adding dependency), also we can add in parent resource in same way(for ex:4_1_Dependency_inside_resource).
